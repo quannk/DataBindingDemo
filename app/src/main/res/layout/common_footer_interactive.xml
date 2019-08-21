@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="callback"
+            type="com.example.myapplication.util.FeedCallback" />
+
+        <variable
+            name="data"
+            type="com.example.myapplication.FooterInteractive" />
+
+        <variable
+            name="position"
+            type="int" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/root"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_footer_post"
+            style="@style/LayoutFooterInteractiveLeft"
+            android:onClick="@{(view)->data.postClick(callback, position)}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.28">
+
+            <ImageView
+                android:id="@+id/imv_footer_post"
+                style="@style/ImageFooterInteractive"
+                android:src="@{data.isPosted.get() ? @drawable/ic_footer_post_blue : @drawable/ic_footer_post}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/text_footer_post"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/text_footer_post"
+                style="@style/TextFooterInteractive"
+                android:fontFamily="@font/san_francisco_display_regular"
+                android:text="@string/post"
+                android:textColor="@color/text_grey_333333"
+                android:textSize="@dimen/text_size_15"
+                app:layout_constraintBottom_toBottomOf="@id/imv_footer_post"
+                app:layout_constraintLeft_toRightOf="@id/imv_footer_post"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@id/imv_footer_post" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_footer_repost"
+            style="@style/LayoutFooterInteractive"
+            android:onClick="@{(view)->data.repostClick(callback, position)}"
+            app:layout_constraintLeft_toRightOf="@id/layout_footer_post"
+            app:layout_constraintWidth_percent="0.28">
+
+            <ImageView
+                android:id="@+id/imv_footer_repost"
+                style="@style/ImageFooterInteractive"
+                android:src="@{data.isReposted.get() ? @drawable/ic_footer_repost_blue : @drawable/ic_footer_repost}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/text_footer_repost"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/text_footer_repost"
+                style="@style/TextFooterInteractive"
+                android:fontFamily="@font/san_francisco_display_regular"
+                android:text="@string/repost"
+                android:textColor="@color/text_grey_333333"
+                android:textSize="@dimen/text_size_15"
+                app:layout_constraintBottom_toBottomOf="@id/imv_footer_repost"
+                app:layout_constraintLeft_toRightOf="@id/imv_footer_repost"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@id/imv_footer_repost" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_footer_send"
+            style="@style/LayoutFooterInteractive"
+            android:onClick="@{(view)->data.sendClick(callback, position)}"
+            app:layout_constraintLeft_toRightOf="@id/layout_footer_repost"
+            app:layout_constraintWidth_percent="0.28">
+
+            <ImageView
+                android:id="@+id/imv_footer_send"
+                style="@style/ImageFooterInteractive"
+                android:src="@{data.isSended.get() ? @drawable/ic_footer_send_blue : @drawable/ic_footer_send}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/text_footer_send"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/text_footer_send"
+                style="@style/TextFooterInteractive"
+                android:fontFamily="@font/san_francisco_display_regular"
+                android:text="@string/send"
+                android:textColor="@color/text_grey_333333"
+                android:textSize="@dimen/text_size_15"
+                app:layout_constraintBottom_toBottomOf="@id/imv_footer_send"
+                app:layout_constraintLeft_toRightOf="@id/imv_footer_send"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@id/imv_footer_send" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_footer_save"
+
+            style="@style/LayoutFooterInteractiveRight"
+            android:onClick="@{(view)->data.saveClick(callback, position)}"
+            app:layout_constraintLeft_toRightOf="@id/layout_footer_send"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintWidth_percent="0.16"
+            tools:ignore="MissingConstraints">
+
+            <ImageView
+                android:id="@+id/imv_footer_save"
+                style="@style/ImageFooterInteractive"
+                android:src="@{data.isSaved.get() ? @drawable/ic_footer_save_blue : @drawable/ic_footer_save}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/text_footer_save"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/text_footer_save"
+                style="@style/TextFooterInteractive"
+                android:fontFamily="@font/san_francisco_display_regular"
+                android:text="@string/save"
+                android:textColor="@color/text_grey_333333"
+                android:textSize="@dimen/text_size_15"
+                app:layout_constraintBottom_toBottomOf="@id/imv_footer_save"
+                app:layout_constraintLeft_toRightOf="@id/imv_footer_save"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@id/imv_footer_save" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

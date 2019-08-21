@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="app_name">Feed</string>
+    <string name="feed_book_chapter">Chương</string>
+    <string name="feed_book_kind">Thể loại</string>
+    <string name="feed_book_rating">Đánh giá</string>
+    <string name="feed_book_age">Độ tuổi</string>
+    <string name="feed_book_state">Trạng thái</string>
+
+    <!--Header Footer-->
+    <string name="post">React</string>
+    <string name="repost">Loan tin</string>
+    <string name="send">Send</string>
+    <string name="save"> </string>
+    <string name="shop_phone">Gọi điện thoại</string>
+    <string name="shop_email">Nhắn tin</string>
+
+    <string name="more_all_card">Xem thêm</string>
+    <string name="view_more">Xem thêm</string>
+    <string name="loadmore">Đang tải thêm...</string>
+    <string name="text_retry_post">Thử đăng lại bài viết của bạn.</string>
+    <string name="text_undo">Undo</string>
+    <string name="text_hide">Đã ẩn bài viết của %s</string>
+    <string name="text_report_post">Báo cáo bài viết</string>
+    <string name="text_hide_all_post">Ẩn tất cả bài viết từ %s</string>
+    <string name="blog">blog</string>
+    <string name="text_no_connect">Không có kết nối mạng</string>
+    <string name="txt_follow_num">Người theo dõi</string>
+    <string name="playling">Đang phát</string>
+    <string name="degree">\u00B0</string>
+    <string name="join">Tham gia</string>
+</resources>

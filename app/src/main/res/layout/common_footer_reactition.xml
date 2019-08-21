@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <!--<variable-->
+            <!--name="callback"-->
+            <!--type="com.vccorp.feed.base.FeedCallback" />-->
+
+        <!--<variable-->
+            <!--name="data"-->
+            <!--type="com.vccorp.feed.sub.common.footer.FooterReactition" />-->
+
+        <variable
+            name="position"
+            type="int" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:id="@+id/root"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_footer_emoji"
+            android:layout_width="@dimen/size_82"
+            android:layout_height="wrap_content"
+            android:onClick="@{(view)->data.emojiClick(callback, position)}"
+            android:paddingBottom="@dimen/size_16"
+            android:paddingLeft="@dimen/size_16"
+            android:paddingTop="@dimen/size_16"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/image_footer_emoji"
+                android:layout_width="@dimen/size_20"
+                android:layout_height="@dimen/size_20"
+                android:src="@{data.isLiked.get() ? @drawable/ic_footer_emoji : @drawable/ic_footer_emoji_grey}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/text_footer_emoji_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/size_4"
+                android:fontFamily="@font/san_francisco_display_regular"
+                android:maxLines="1"
+                android:text='@{data.numberEmoji.get()}'
+                android:textColor="@color/text_grey_333333"
+                android:textSize="@dimen/text_size_13"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/image_footer_emoji"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="1234" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_footer_comment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{(view)->data.commentClick(callback, position)}"
+            android:paddingBottom="@dimen/size_16"
+            android:paddingLeft="@dimen/size_4"
+            android:paddingTop="@dimen/size_16"
+            app:layout_constraintBottom_toBottomOf="@+id/layout_footer_emoji"
+            app:layout_constraintLeft_toRightOf="@id/layout_footer_emoji"
+            app:layout_constraintTop_toTopOf="@id/layout_footer_emoji">
+
+            <ImageView
+                android:id="@+id/image_footer_comment"
+                android:layout_width="@dimen/size_20"
+                android:layout_height="@dimen/size_20"
+                android:src="@{data.isCommented.get() ? @drawable/ic_footer_comment : @drawable/ic_footer_comment_grey}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/text_footer_comment_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/size_4"
+                android:fontFamily="@font/san_francisco_display_regular"
+                android:text="@{data.numberComment}"
+                android:textColor="@color/text_grey_333333"
+                android:textSize="@dimen/text_size_13"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/image_footer_comment"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="1234" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/text_footer_post_repost_send"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/san_francisco_display_regular"
+            android:gravity="right"
+            android:paddingBottom="@dimen/size_16"
+            android:paddingRight="@dimen/size_16"
+            android:paddingTop="@dimen/size_16"
+            android:singleLine="true"
+            android:text="@{data.formatPostRepostSend}"
+            android:textColor="@color/text_grey_333333"
+            android:textSize="@dimen/text_size_11"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/layout_footer_comment"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
